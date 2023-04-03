@@ -32,6 +32,8 @@ type configOptions struct {
 	BasePath                     string
 	BaseHost                     string
 	BaseScheme                   string
+	TLSCert                      string
+	TLSKey                       string
 	UILoginBackgroundURL         string
 	UIWelcomeMessage             string
 	MaxSidebarPlaylists          int
@@ -54,6 +56,7 @@ type configOptions struct {
 	FFmpegPath                   string
 	CoverArtPriority             string
 	CoverJpegQuality             int
+	ArtistArtPriority            string
 	EnableGravatar               bool
 	EnableFavourites             bool
 	EnableStarRating             bool
@@ -246,6 +249,8 @@ func init() {
 	viper.SetDefault("scaninterval", -1)
 	viper.SetDefault("scanschedule", "@every 1m")
 	viper.SetDefault("baseurl", "")
+	viper.SetDefault("tlscert", "")
+	viper.SetDefault("tlskey", "")
 	viper.SetDefault("uiloginbackgroundurl", consts.DefaultUILoginBackgroundURL)
 	viper.SetDefault("uiwelcomemessage", "")
 	viper.SetDefault("maxsidebarplaylists", consts.DefaultMaxSidebarPlaylists)
@@ -268,6 +273,7 @@ func init() {
 	viper.SetDefault("ffmpegpath", "")
 	viper.SetDefault("coverartpriority", "cover.*, folder.*, front.*, embedded, external")
 	viper.SetDefault("coverjpegquality", 75)
+	viper.SetDefault("artistartpriority", "artist.*, album/artist.*, external")
 	viper.SetDefault("enablegravatar", false)
 	viper.SetDefault("enablefavourites", true)
 	viper.SetDefault("enablestarrating", true)
